@@ -117,7 +117,7 @@ game.SpendGold = Object.extend({
     
     checkCost: function(skill1){
         //if skill 1 is selected and have more gold than the cost to level up skill 1 then return true//
-        if(skill===1 && (game.data.gold >= ((game.data.skill1+1)*10))) {
+        if(skil1===1 && (game.data.gold >= ((game.data.skill1+1)*10))) {
             return true;
         }else if(skill===2 && (game.data.gold >= ((game.data.skill2+1)*10))) {
             return true;
