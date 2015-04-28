@@ -30,6 +30,7 @@ game.SpendGold = Object.extend({
     startBuying: function(){
         this.buying = true;
         me.state.pause(me.state.PLAY);
+        //this pauses my character in place when i start buying//
         game.data.pausePos = me.game.viewport.localToWorld(0, 0);
         game.data.buyscreen = new me.Sprite(game.data.pausePos.x, game.data.pausePos.y, me.loader.getImage('gold-screen'));
         game.data.buyscreen.updateWhenPaused = true;
@@ -54,7 +55,7 @@ game.SpendGold = Object.extend({
                         this.updateWhenPaused = true;
                         this.alwaysUpdate = true;
                     },
-                    
+                        //this is all the skills in my buy screen//
                         draw: function(renderer){
                             this.font.draw(renderer.getContext(), "PRESS F1-F6 TO BUY, B TO EXIT. Current Gold: " + game.data.gold,this.pos.x, this.pos.y);
                             this.font.draw(renderer.getContext(), "Skill 1: Increase Damage. Current Level: " + game.data.skill1 + " Cost:" + ((game.data.skill1+1)*10),this.pos.x, this.pos.y + 40);
@@ -82,7 +83,7 @@ game.SpendGold = Object.extend({
         me.input.unbindKey(me.input.KEY.F6, "F6", true);
         me.game.world.removeChild(game.data.buytext);
     },
-    
+    //this says if any keys were pressed during the buy screen then make the purchase//
     checkBuyKeys: function() {
         if(me.input.isKeyPressed("F1")){
             if(this.checkCost(1)){

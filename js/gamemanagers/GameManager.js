@@ -1,5 +1,4 @@
 
-
 game.ExperienceManager = Object.extend({
     init: function(x, y, settings){
         this.alwaysUpdate = true;
@@ -7,10 +6,12 @@ game.ExperienceManager = Object.extend({
     },
     
     update: function(){
+        //this says if my enemies base was destroyed than alert that you win//
         if(game.data.win === true && !this.gameover){
            this.gameOver(true);
-           alert("YOU WIN")
+           alert("YOU WIN");
         }else if(game.data.win === false && !this.gameover){
+            //this says if my base was destoryed than alert me that i lost//
             this.gameOver(false);
             alert("YOU LOSE");
         }
@@ -59,3 +60,49 @@ game.ExperienceManager = Object.extend({
 
 });
 
+game.PauseScreen = Object.extend({
+    init: function(x, y, settings){
+        this.now = new Date().getTime();
+        this.lastPaused = new Date().getTime();
+        this.paused = false;
+        this.alwaysUpdate = true;
+        this.updateWhenPaused = true;
+        this.pausing = false;
+    },
+    
+    update: function(){
+        this.now = new Date().getTime();
+        
+        if(me.input.isKeyPressed("pause") && this.now-this.lastPause >=1000){
+            this.lastPause = this.now;
+            if(!this.pausing){
+                this.startPausing;
+            }else{
+                this.stopPausing();
+            }
+            
+        }
+        
+        return true;
+    },
+    
+    startPausing: function(){
+        this.pausing = true;
+        me.state.pause(me.state.PLAY);
+        game.data.pausePos = me.game.viewport.localToWorld(0, 0);
+        game.data.pausescreen = new me.sprite(game.data.pausePos.x, game.data.pausePos.y, me.loader.getImage('pause-screen'));
+        game.data.buyscreen.updateWhenPaused = true;
+        game.data.pausescreen.setOpacity(0.8);
+        me.game.world.addChild(game.data.buyscreen, 34);
+        game.data.player.body.setVelocity(0, 0);
+    },
+    
+    
+    StopPausing: function(){
+        this.pausing = false;
+        me.state.resume(me.state.PLAY);
+        game.data.body.setVelocity(game.data.playerMoveSpeed, 20);
+        me.state.world.removeChild(game.data.pausescreen);
+    }
+    
+});

@@ -22,12 +22,12 @@ game.EnemyCreep = me.Entity.extend({
        this.body.setVelocity(3, 20);
        
        this.type = "EnemyCreep";
-       
+       //these are the animations for the creep//
        this.renderable.addAnimation("walk", [3, 4, 5], 80);
        this.renderable.setCurrentAnimation("walk");
    
    },
-   
+   //this says if the creep was attacked overtime then lose health overtime//
    loseHealth: function(damage){
        console.log(this.health);
      this.health = this.health - damage;  

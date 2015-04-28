@@ -40,6 +40,7 @@ var game = {
                 exp4: 0,
                 win: "",
                 pausePos: "",
+                pausescreen: "",
                 buyscreen: "",
                 buytext: ""
 	},
@@ -89,6 +90,7 @@ var game = {
                 me.pool.register("ExperienceManager", game.ExperienceManager);
                 me.pool.register("SpendGold", game.SpendGold);
                 me.pool.register("SpearThrow", game.SpearThrow);
+                me.pool.register("PauseScreen", game.PauseScreen);
                 
 		me.state.set(me.state.MENU, new game.TitleScreen());
 		me.state.set(me.state.PLAY, new game.PlayScreen());

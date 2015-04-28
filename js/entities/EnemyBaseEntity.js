@@ -10,6 +10,7 @@ game.EnemyBaseEntity = me.Entity.extend({
                 return (new me.Rect(0, 0, 100, 70)).toPolygon();
             }
         }]);
+    //this is the enemy base entites//
         this.broken = false;
         this.health = game.data.enemyBaseHealth;
         this.alwaysUpdate = true;
@@ -22,6 +23,7 @@ game.EnemyBaseEntity = me.Entity.extend({
         this.renderable.setCurrentAnimation("idle");
 
     },
+    //this says if base was attacked and destroyed than display as broken//
     update: function(delta) {
         if (this.health <= 0) {
             this.broken = true;
@@ -36,7 +38,7 @@ game.EnemyBaseEntity = me.Entity.extend({
     onCollision: function() {
 
     },
-    
+    //this says if the base was attacked then lose health overtime//
     loseHealth: function(){
         this.health--;
     }

@@ -2,7 +2,8 @@ game.SpendExp = me.ScreenObject.extend({
 	/**	
 	 *  action to perform on state change
 	 */
-	onResetEvent: function() {	
+	onResetEvent: function() {
+            //this is the screen at the beginning of the game//
 		me.game.world.addChild(new me.Sprite(0, 0, me.loader.getImage('exp-screen')), -10); // TODO
 
                 me.input.bindKey(me.input.KEY.F1, "F1");
@@ -18,7 +19,7 @@ game.SpendExp = me.ScreenObject.extend({
                         this._super(me.Renderable, 'init', [10, 10, 300, 50]);
                         this.font = new me.Font("Arial", 26, "white");
                     },
-                    
+                    //these are the things you can buy at the beginning of the game//
                         draw: function(renderer){
                             this.font.draw(renderer.getContext(), "PRESS F1-F4 TO BUY, F5 TO SKIP", this.pos.x, this.pos.y);
                             this.font.draw(renderer.getContext(), "CURRENT EXP: " + game.data.exp.toString(), this.pos.x + 100, this.pos.y + 50);
@@ -32,6 +33,7 @@ game.SpendExp = me.ScreenObject.extend({
                 
                 this.handler = me.event.subscribe(me.event.KEYDOWN, function(action, keyCode, edge){
                     if(action === "F1"){
+                        //this says if you dont have enough exp than you cant buy the ability//
                         if(game.data.exp >= exp1cost){
                             game.data.exp1 += 1;
                             game.data.exp -= exp1cost;

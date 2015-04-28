@@ -16,6 +16,7 @@ game.resources = [
         {name: "load-screen", type:"image", src: "data/img/loadpic.png"},
         {name: "new-screen", type:"image", src: "data/img/newpic.png"},
         {name: "spear", type:"image", src: "data/img/spear.png"},
+        {name: "pause-screen", type:"image", src: "data/img/pause.png"},
         
         
 

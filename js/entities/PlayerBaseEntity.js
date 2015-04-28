@@ -15,12 +15,13 @@ game.PlayerBaseEntity = me.Entity.extend({
         this.alwaysUpdate = true;
         this.body.onCollision = this.onCollision.bind(this);
         this.type = "PlayerBase";
-        
+        //this is the animations for the base when destoryed//
         this.renderable.addAnimation("idle", [0]);
         this.renderable.addAnimation("broken", [1]);
         this.renderable.setCurrentAnimation("idle");
 
     },
+    //this says if the base was destoryed then display as broken which is destroyed//
     update: function(delta) {
         if (this.health <= 0) {
             this.broken = true;
@@ -32,7 +33,7 @@ game.PlayerBaseEntity = me.Entity.extend({
         this._super(me.Entity, "update", [delta]);
         return true;
     },
-    
+    //this says if the base was attacked then lose health overtime//
     loseHealth: function(damage){
         this.health = this.health - damage;
     },

@@ -10,6 +10,7 @@ game.SpearThrow = me.Entity.extend({
                return (new me.Rect(0, 0, 48, 48)).toPolygon();
            }
        }]);
+       //these lines of code say how fast the spear is going and the number of spears you have//
        this.alwaysUpdate = true;
        this.body.setVelocity(8, 0);
        this.attack = game.data.ability3*3;
@@ -34,6 +35,7 @@ game.SpearThrow = me.Entity.extend({
     },
     
     collideHandler: function(response){
+        //these lines of code say if the spear was thrown at the base or enemy creep then lose health overtime//
         if(response.b.type==='EnemyBase' || response.b.type==='EnemyCreep'){
            response.b.loseHealth(this.attack);
            me.game.world.removeChild(this);
