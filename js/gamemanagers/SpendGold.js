@@ -110,7 +110,9 @@ game.SpendGold = Object.extend({
             }
         }
         else if(me.input.isKeyPressed("F6")){
+            console.log(this.checkCost(6));
             if(this.checkCost(6)){
+                
                 this.makePurchase(6);
             }
         }
@@ -118,25 +120,25 @@ game.SpendGold = Object.extend({
     
     checkCost: function(skill1){
         //if skill 1 is selected and have more gold than the cost to level up skill 1 then return true//
-        if(skil1===1 && (game.data.gold >= ((game.data.skill1+1)*10))) {
+        if(skill1===1 && (game.data.gold >= ((game.data.skill1+1)*10))) {
             return true;
-        }else if(skill===2 && (game.data.gold >= ((game.data.skill2+1)*10))) {
+        }else if(skill1===2 && (game.data.gold >= ((game.data.skill2+1)*10))) {
             return true;
-        }else if(skill===3 && (game.data.gold >= ((game.data.skill3+1)*10))) {
+        }else if(skill1===3 && (game.data.gold >= ((game.data.skill3+1)*10))) {
             return true;
-        }else if(skill===4 && (game.data.gold >= ((game.data.abilty1+1)*10))) {
+        }else if(skill1===4 && (game.data.gold >= ((game.data.abilty1+1)*10))) {
             return true;
-        }else if(skill===5 && (game.data.gold >= ((game.data.ability2+1)*10))) {
+        }else if(skill1===5 && (game.data.gold >= ((game.data.ability2+1)*10))) {
             return true;
-        }else if(skill===6 && (game.data.gold >= ((game.data.skill6+1)*10))) {
+        }else if(skill1===6 && (game.data.gold >= ((game.data.ability3+1)*10))) {
             return true;
         }else{
             return false;   
         }
     },
     
-    makePurchase: function(skill2){
-            if(skill1 === 1){
+    makePurchase: function(skill){
+            if(skill === 1){
             game.data.gold -= ((game.data.skill1 +1)* 10);
             game.data.skill1 += 1;
             game.data.player.Attack += 1;
