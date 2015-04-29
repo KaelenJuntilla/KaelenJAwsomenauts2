@@ -25,7 +25,7 @@ game.PlayScreen = me.ScreenObject.extend({
                 var pauseScreen = me.pool.pull("PauseScreen", 0, 0, {});
                 me.game.world.addChild(pauseScreen, 0);
                 
-                me.input.bindKey(me.input.KEY.P, "pause");
+                
                 me.input.bindKey(me.input.KEY.B, "buy");
                 me.input.bindKey(me.input.KEY.Q, "skill1");
                 me.input.bindKey(me.input.KEY.W, "skill2");
@@ -34,6 +34,7 @@ game.PlayScreen = me.ScreenObject.extend({
                 me.input.bindKey(me.input.KEY.LEFT, "left");
                 me.input.bindKey(me.input.KEY.SPACE, "jump");
                 me.input.bindKey(me.input.KEY.A, "attack");
+                me.input.bindKey(me.input.KEY.P, "pause");
 
 		// add our HUD to the game world
 		this.HUD = new game.HUD.Container();
