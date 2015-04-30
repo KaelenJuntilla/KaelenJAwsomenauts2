@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/xampp/htdocs/KaelenJAwsomenauts/js/game.js</file>
+            <file>file:/C:/xampp/htdocs/KaelenJAwsomenauts/index.php</file>
+            <file>file:/C:/xampp/htdocs/KaelenJAwsomenauts/js/resources.js</file>
+            <file>file:/C:/xampp/htdocs/KaelenJAwsomenauts/js/gamemanagers/GameManager.js</file>
+            <file>file:/C:/xampp/htdocs/KaelenJAwsomenauts/js/entities/entities.js</file>
+            <file>file:/C:/xampp/htdocs/KaelenJAwsomenauts/js/screens/play.js</file>
+            <file>file:/C:/xampp/htdocs/KaelenJAwsomenauts/js/gamemanagers/GameTimerManager.js</file>
+            <file>file:/C:/xampp/htdocs/KaelenJAwsomenauts/js/entities/SpearThrow.js</file>
+            <file>file:/C:/xampp/htdocs/KaelenJAwsomenauts/js/entities/PlayerBaseEntity.js</file>
+            <file>file:/C:/xampp/htdocs/KaelenJAwsomenauts/js/gamemanagers/SpendGold.js</file>
+            <file>file:/C:/xampp/htdocs/KaelenJAwsomenauts/js/screens/spendExp.js</file>
+        </group>
+    </open-files>
+</project-private>
