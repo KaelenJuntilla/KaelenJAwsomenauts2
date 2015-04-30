@@ -13,9 +13,11 @@ game.SpendGold = Object.extend({
         
         if(me.input.isKeyPressed("buy") && this.now-this.lastBuy >= 1000){
             this.lastBuy = this.now;
+            //this says if not buying then start buying//
             if(!this.buying){
                 this.startBuying();
             }else{
+                //if buying then start buying//
                 this.stopBuying();
             }
                 
@@ -30,10 +32,12 @@ game.SpendGold = Object.extend({
     startBuying: function(){
         this.buying = true;
         me.state.pause(me.state.PLAY);
-        //this pauses my character in place when i start buying//
+        //this pauses my character in place when I start buying//
         game.data.pausePos = me.game.viewport.localToWorld(0, 0);
+        //when games is paused then show this image which is the "Gold Screen"
         game.data.buyscreen = new me.Sprite(game.data.pausePos.x, game.data.pausePos.y, me.loader.getImage('gold-screen'));
         game.data.buyscreen.updateWhenPaused = true;
+        //this is how dark the screen when paused//
         game.data.buyscreen.setOpacity(0.8);
         me.game.world.addChild(game.data.buyscreen, 34);
         game.data.player.body.setVelocity(0, 0);
@@ -72,7 +76,9 @@ game.SpendGold = Object.extend({
     
     stopBuying: function(){
         this.buying = false;
+        //when wanting to return to the game then go back to the "PLAY" state//
         me.state.resume(me.state.PLAY);
+        //When returning back to the play state then have a movespeed of 20//
         game.data.player.body.setVelocity(game.data.playerMoveSpeed, 20);
         me.game.world.removeChild(game.data.buyscreen);
         me.input.unbindKey(me.input.KEY.F1, "F1", true);
@@ -86,6 +92,7 @@ game.SpendGold = Object.extend({
     //this says if any keys were pressed during the buy screen then make the purchase//
     checkBuyKeys: function() {
         if(me.input.isKeyPressed("F1")){
+            //this says if the F1 key was pressed and have enough gold to buy then make the purchase to buy the ability or skill//
             if(this.checkCost(1)){
                 this.makePurchase(1);
             }
@@ -138,6 +145,7 @@ game.SpendGold = Object.extend({
     },
     
     makePurchase: function(skill){
+        //if you have enough to buy the skill then increase the player's ability or skill by one also the ability increases by ten  //
             if(skill === 1){
             game.data.gold -= ((game.data.skill1 +1)* 10);
             game.data.skill1 += 1;

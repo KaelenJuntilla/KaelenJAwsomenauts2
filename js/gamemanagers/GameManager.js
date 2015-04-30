@@ -59,4 +59,3 @@ game.ExperienceManager = Object.extend({
     }
 
 });
-

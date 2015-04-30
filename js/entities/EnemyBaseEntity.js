@@ -23,7 +23,7 @@ game.EnemyBaseEntity = me.Entity.extend({
         this.renderable.setCurrentAnimation("idle");
 
     },
-    //this says if base was attacked and destroyed than display as broken//
+    //this says if base was attacked and destroyed than display as broken which is destoryed/
     update: function(delta) {
         if (this.health <= 0) {
             this.broken = true;
